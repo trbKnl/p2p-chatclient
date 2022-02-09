@@ -154,3 +154,4 @@ cython_debug/
 
 qemu-arm-static
 copy.sh
+dump.rdb
