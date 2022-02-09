@@ -153,3 +153,4 @@ cython_debug/
 #.idea/
 
 qemu-arm-static
+copy.sh
