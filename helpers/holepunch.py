@@ -61,6 +61,7 @@ def connect(dsthost: str, dstport: int, srcport: int, threads_running: threading
             print("connected to peer: as client")
         except socket.error:
             print("connect timeout")
+            time.sleep(1)
 
     print("connect thread closed")
 

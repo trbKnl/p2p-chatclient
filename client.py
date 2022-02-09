@@ -8,6 +8,8 @@ import logging
 from helpers import chat
 from helpers import holepunch
 
+RENDEZVOUS_SERVER="wss://rendezvous.niekdeschipper.com"
+
 
 logging.basicConfig(format='%(asctime)s - %(name)s -  %(levelname)s - %(message)s')
 
@@ -19,7 +21,8 @@ for m in my_modules:
 import os,sys,stat
 
 async def get_my_ip_info() -> dict:
-    nat_type, external_ip, _ = stun.get_ip_info(stun_host='192.168.2.8')
+    #nat_type, external_ip, _ = stun.get_ip_info(stun_host='192.168.2.8')
+    nat_type, external_ip, _ = stun.get_ip_info()
     srcport = holepunch.pick_open_port()
     print(srcport)
     out = {
@@ -65,7 +68,7 @@ async def connect_to_rendezvous_server(uri: str) -> (dict, dict):
 
 
 async def main() -> None:
-    my_ip_info, other_ip_info = await connect_to_rendezvous_server("ws://192.168.2.8:8765")
+    my_ip_info, other_ip_info = await connect_to_rendezvous_server(f"{RENDEZVOUS_SERVER}")
     print(my_ip_info)
     print(other_ip_info)
 
@@ -85,6 +88,5 @@ try :
     asyncio.run(main())
 except KeyboardInterrupt:
     pass
-
 
 

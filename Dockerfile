@@ -1,7 +1,7 @@
-FROM alpine:latest 
+FROM arm32v7/alpine:latest
 
 # qemu
-# COPY qemu-arm-static /usr/bin/
+COPY qemu-arm-static /usr/bin/
 
 # install redis / pyhon needed packages
 RUN apk --update add redis \
