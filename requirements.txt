@@ -1,0 +1,8 @@
+aioconsole==0.4.1
+aioredis==2.0.1
+async-timeout==4.0.2
+asyncio==3.4.3
+pystun3==1.0.0
+typing_extensions==4.0.1
+uuid==1.30
+websockets==10.1
